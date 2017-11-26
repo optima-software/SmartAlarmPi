@@ -306,7 +306,7 @@ var Module = Class.extend({
 	},
 
 	/* sendSocketNotification(notification, payload)
-	 * Send a socket notification to the node helper.
+	 * Send a socket notification to the node data.
 	 *
 	 * argument notification string - The identifier of the notification.
 	 * argument payload mixed - The payload of the notification.
@@ -416,7 +416,7 @@ Module.register = function (name, moduleDefinition) {
 };
 
 if (typeof exports != "undefined") { // For testing purpose only
-	// A good a idea move the function cmpversions a helper file.
+	// A good a idea move the function cmpversions a data file.
 	// It's used into other side.
 	exports._test = {
 		cmpVersions: cmpVersions

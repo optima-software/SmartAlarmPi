@@ -188,7 +188,8 @@ Module.register("currentweather",{
 		}
 
 		var large = document.createElement("div");
-		large.className = "large light";
+		large.className = "normal medium";
+		large.innerHTML = this.config.location + "&nbsp;";
 
 		var weatherIcon = document.createElement("span");
 		weatherIcon.className = "wi weathericon " + this.weatherType;
@@ -210,7 +211,7 @@ Module.register("currentweather",{
 		}
 
 		var temperature = document.createElement("span");
-		temperature.className = "bright";
+		temperature.className = "normal";
 		temperature.innerHTML = " " + this.temperature + "&deg;" + degreeLabel;
 		large.appendChild(temperature);
 

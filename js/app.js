@@ -120,7 +120,7 @@ var App = function() {
 			fs.accessSync(helperPath, fs.R_OK);
 		} catch (e) {
 			loadModule = false;
-			console.log("No helper found for module: " + moduleName + ".");
+			console.log("No data found for module: " + moduleName + ".");
 		}
 
 		if (loadModule) {
@@ -128,7 +128,7 @@ var App = function() {
 			var m = new Module();
 
 			if (m.requiresVersion) {
-				console.log("Check MagicMirror version for node helper '" + moduleName + "' - Minimum version:  " + m.requiresVersion + " - Current version: " + global.version);
+				console.log("Check MagicMirror version for node data '" + moduleName + "' - Minimum version:  " + m.requiresVersion + " - Current version: " + global.version);
 				if (cmpVersions(global.version, m.requiresVersion) >= 0) {
 					console.log("Version is ok!");
 				} else {

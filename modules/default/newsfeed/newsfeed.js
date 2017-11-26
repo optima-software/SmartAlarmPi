@@ -160,7 +160,7 @@ Module.register("newsfeed",{
 
 			if(!this.config.showFullArticle){
 				var title = document.createElement("div");
-				title.className = "bright medium light" + (!this.config.wrapTitle ? " no-wrap" : "");
+				title.className = "medium light" + (!this.config.wrapTitle ? " no-wrap" : "");
 				title.innerHTML = this.newsItems[this.activeItem].title;
 				wrapper.appendChild(title);
 			}
@@ -217,7 +217,7 @@ Module.register("newsfeed",{
 	/* generateFeed()
 	 * Generate an ordered list of items for this configured module.
 	 *
-	 * attribute feeds object - An object with feeds returned by the node helper.
+	 * attribute feeds object - An object with feeds returned by the node data.
 	 */
 	generateFeed: function(feeds) {
 		var newsItems = [];

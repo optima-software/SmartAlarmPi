@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/bindings" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/buffer-alloc" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/buffer-alloc-unsafe" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/buffer-fill" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/core-util-is" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/debug" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/inherits" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/isarray" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/lame" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/ms" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/nan" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/process-nextick-args" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/readable-stream" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/safe-buffer" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/speaker" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/string_decoder" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/node_modules/util-deprecate" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

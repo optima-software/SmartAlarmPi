@@ -8,6 +8,7 @@
 // Modules listed below can be loaded without the 'default/' prefix. Omitting the default folder name.
 
 var defaultModules = [
+	"alarm",
 	"alert",
 	"calendar",
 	"clock",

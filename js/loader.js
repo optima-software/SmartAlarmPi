@@ -8,7 +8,7 @@
 
 var Loader = (function() {
 
-	/* Create helper valiables */
+	/* Create data valiables */
 
 	var loadedModuleFiles = [];
 	var loadedFiles = [];
