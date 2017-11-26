@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Custom",
+    "active": "0",
+    "type": "c",
+    "days": "Mo,Di,Mi,So",
+    "time": "05:51",
+    "snooze": "10",
+    "sound": {
+      "file": "Nana Mouskouri - Guten Morgen Sonnenschein.mp3",
+      "text": "Nana Mouskouri - Guten Morgen Sonnenschein"
+    },
+    "traffic": {
+      "destinationAddress": "Bahnhofstrasse 55, 90402 Nürnberg, Deutschland",
+      "mode": "driving"
+    }
+  },
+  {
+    "name": "Workday",
+    "active": "0",
+    "type": "w",
+    "days": "none",
+    "time": "23:07",
+    "snooze": "1",
+    "sound": {
+      "file": "http://www.rockantenne.de/webradio/rockantenne.m3u",
+      "text": "Rock Antenne"
+    },
+    "traffic": {
+      "destinationAddress": "Bahnhofstrasse 55, 90402 Nürnberg, Deutschland",
+      "mode": "driving"
+    }
+  },
+  {
+    "name": "Single",
+    "active": "0",
+    "type": "s",
+    "days": "none",
+    "time": "20:42",
+    "snooze": "1",
+    "sound": {
+      "file": "Lauter Maffiosi.mp3",
+      "text": "Gerhard Polt - Lauter Maffiosi"
+    },
+    "traffic": {
+      "destinationAddress": "Bahnhofstrasse 55, 90402 Nürnberg, Deutschland",
+      "mode": "driving"
+    }
+  },
+  {
+    "name": "Daily",
+    "active": "1",
+    "type": "d",
+    "days": "none",
+    "time": "16:37",
+    "snooze": "1",
+    "sound": {
+      "file": "http://mp3.ffh.de/radioffh/hqlivestream.mp3",
+      "text": "Webradio FFH"
+    },
+    "traffic": {
+      "destinationAddress": "Bahnhofstrasse 55, 90402 Nürnberg, Deutschland",
+      "mode": "driving"
+    }
+  }
+]
