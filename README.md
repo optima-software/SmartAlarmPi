@@ -1,7 +1,7 @@
 ![SmartAlarmPi: The open source modular smart mirror platform. ](.github/header.png)
 
 
-**SmartAlarmPi** is an open source modular smart alarm platform. based on [MagicMirror²](https://github.com/MichMich/MagicMirror)
+**SmartAlarmPi** is an open source modular smart alarm platform based on [MagicMirror²](https://github.com/MichMich/MagicMirror)
 
 SmartAlarmPi focuses on a modular plugin system and uses [Electron](http://electron.atom.io/) as an application wrapper. So no more web server or browser installs necessary!
 
