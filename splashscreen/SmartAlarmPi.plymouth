@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=SmartAlarmPi
+Description=Alarm Splash
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/SmartAlarmPi
+ScriptFile=/usr/share/plymouth/themes/SmartAlarmPi/SmartAlarmPi.script

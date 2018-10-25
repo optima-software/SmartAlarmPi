@@ -1,2 +1,2 @@
-echo "\033[32mMagicMirror installation successful!"
+echo "\033[32mSmartAlarmPi installation successful!"
 exit 0

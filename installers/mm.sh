@@ -1,2 +1,2 @@
-cd ~/MagicMirror
+cd ~/SmartAlarmPi
 DISPLAY=:0 npm start

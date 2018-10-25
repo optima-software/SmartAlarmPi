@@ -371,6 +371,7 @@ module.exports = NodeHelper.create({
             if (err !== null)
                 this.log (err, "error");
             msg += weatherInfo;
+
             this.getTrafficForecast(this.currentAlarm, (err, trafficInfo) => {
                 if (err) {
                     this.log(err, "error");
@@ -478,23 +479,27 @@ module.exports = NodeHelper.create({
             return callback("No origin or destination address set for traffic forecast");
         }
         this.getGeocode(this.config.trafficforecast.originAddress, (err, response) => {
-            if (err)
+            if (err) {
                 return callback(err);
+            }
             var origin = response;
             this.getGeocode(alarm["traffic"]["destinationAddress"], (err, response) => {
-                if (err)
+                if (err) {
                     return callback(err);
+                }
                 var destination = response;
                 if (origin && destination) {
                     this.getDirection(origin, destination, alarm, (err, response) => {
-                        if (err)
+                        if (err) {
                             return callback(err);
+                        }
                         return callback(null, response);
                     });
                 };
             });
-            if (err)
+            if (err) {
                 return callback(err);
+            }
         });
     },
 
@@ -547,7 +552,7 @@ module.exports = NodeHelper.create({
             if (!err && response.json.status === "OK") {
                 return callback (null, response.json.results[0].geometry.location);
             } else {
-                return callback(err.json.error_message);
+                return callback("Failed to get Geo-Code: " + err);
             }
         })
     },

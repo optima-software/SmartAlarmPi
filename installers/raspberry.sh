@@ -1,21 +1,9 @@
 #!/usr/bin/env bash
 
-# This is an installer script for MagicMirror2. It works well enough
+# This is an installer script for SmartAlarmPi. It works well enough
 # that it can detect if you have Node installed, run a binary script
-# and then download and run MagicMirror2.
+# and then download and run SmartAlarmPi.
 
-echo -e "\e[0m"
-echo '$$\      $$\                     $$\           $$\      $$\ $$\                                          $$$$$$\'
-echo '$$$\    $$$ |                    \__|          $$$\    $$$ |\__|                                        $$  __$$\'
-echo '$$$$\  $$$$ | $$$$$$\   $$$$$$\  $$\  $$$$$$$\ $$$$\  $$$$ |$$\  $$$$$$\   $$$$$$\   $$$$$$\   $$$$$$\  \__/  $$ |'
-echo '$$\$$\$$ $$ | \____$$\ $$  __$$\ $$ |$$  _____|$$\$$\$$ $$ |$$ |$$  __$$\ $$  __$$\ $$  __$$\ $$  __$$\  $$$$$$  |'
-echo '$$ \$$$  $$ | $$$$$$$ |$$ /  $$ |$$ |$$ /      $$ \$$$  $$ |$$ |$$ |  \__|$$ |  \__|$$ /  $$ |$$ |  \__|$$  ____/'
-echo '$$ |\$  /$$ |$$  __$$ |$$ |  $$ |$$ |$$ |      $$ |\$  /$$ |$$ |$$ |      $$ |      $$ |  $$ |$$ |      $$ |'
-echo '$$ | \_/ $$ |\$$$$$$$ |\$$$$$$$ |$$ |\$$$$$$$\ $$ | \_/ $$ |$$ |$$ |      $$ |      \$$$$$$  |$$ |      $$$$$$$$\'
-echo '\__|     \__| \_______| \____$$ |\__| \_______|\__|     \__|\__|\__|      \__|       \______/ \__|      \________|'
-echo '                       $$\   $$ |'
-echo '                       \$$$$$$  |'
-echo '                        \______/'
 echo -e "\e[0m"
 
 # Define the tested version of Node.js.
@@ -27,7 +15,7 @@ ARM=$(uname -m)
 # Check the Raspberry Pi version.
 if [ "$ARM" != "armv7l" ]; then
 	echo -e "\e[91mSorry, your Raspberry Pi is not supported."
-	echo -e "\e[91mPlease run MagicMirror on a Raspberry Pi 2 or 3."
+	echo -e "\e[91mPlease run SmartAlarmPi on a Raspberry Pi 2 or 3."
 	echo -e "\e[91mIf this is a Pi Zero, you are in the same boat as the original Raspberry Pi. You must run in server only mode."
 	exit;
 fi
@@ -80,7 +68,7 @@ if $NODE_INSTALL; then
 
 	# Fetch the latest version of Node.js from the selected branch
 	# The NODE_STABLE_BRANCH variable will need to be manually adjusted when a new branch is released. (e.g. 7.x)
-	# Only tested (stable) versions are recommended as newer versions could break MagicMirror.
+	# Only tested (stable) versions are recommended as newer versions could break SmartAlarmPi.
 	
 	NODE_STABLE_BRANCH="6.x"
 	curl -sL https://deb.nodesource.com/setup_$NODE_STABLE_BRANCH | sudo -E bash -
@@ -88,27 +76,27 @@ if $NODE_INSTALL; then
 	echo -e "\e[92mNode.js installation Done!\e[0m"
 fi
 
-# Install MagicMirror
+# Install SmartAlarmPi
 cd ~
-if [ -d "$HOME/MagicMirror" ] ; then
-	echo -e "\e[93mIt seems like MagicMirror is already installed."
+if [ -d "$HOME/SmartAlarmPi" ] ; then
+	echo -e "\e[93mIt seems like SmartAlarmPi is already installed."
 	echo -e "To prevent overwriting, the installer will be aborted."
-	echo -e "Please rename the \e[1m~/MagicMirror\e[0m\e[93m folder and try again.\e[0m"
+	echo -e "Please rename the \e[1m~/SmartAlarmPi\e[0m\e[93m folder and try again.\e[0m"
 	echo ""
-	echo -e "If you want to upgrade your installation run \e[1m\e[97mgit pull\e[0m from the ~/MagicMirror directory."
+	echo -e "If you want to upgrade your installation run \e[1m\e[97mgit pull\e[0m from the ~/SmartAlarmPi directory."
 	echo ""
 	exit;
 fi
 
-echo -e "\e[96mCloning MagicMirror ...\e[90m"
-if git clone https://github.com/MichMich/MagicMirror.git; then 
-	echo -e "\e[92mCloning MagicMirror Done!\e[0m"
+echo -e "\e[96mCloning SmartAlarmPi ...\e[90m"
+if git clone https://github.com/optima-software/SmartAlarmPi.git; then
+	echo -e "\e[92mCloning SmartAlarmPi Done!\e[0m"
 else
-	echo -e "\e[91mUnable to clone MagicMirror."
+	echo -e "\e[91mUnable to clone SmartAlarmPi."
 	exit;
 fi
 
-cd ~/MagicMirror  || exit
+cd ~/SmartAlarmPi  || exit
 echo -e "\e[96mInstalling dependencies ...\e[90m"
 if npm install; then 
 	echo -e "\e[92mDependencies installation Done!\e[0m"
@@ -117,7 +105,7 @@ else
 	exit;
 fi
 
-# Use sample config for start MagicMirror
+# Use sample config for start SmartAlarmPi
 cp config/config.js.sample config/config.js
 
 # Check if plymouth is installed (default with PIXEL desktop environment), then install custom splashscreen.
@@ -127,16 +115,16 @@ if command_exists plymouth; then
 	echo -e "\e[90mSplashscreen: Checking themes directory.\e[0m"
 	if [ -d $THEME_DIR ]; then
 		echo -e "\e[90mSplashscreen: Create theme directory if not exists.\e[0m"
-		if [ ! -d $THEME_DIR/MagicMirror ]; then
-			sudo mkdir $THEME_DIR/MagicMirror
+		if [ ! -d $THEME_DIR/SmartAlarmPi ]; then
+			sudo mkdir $THEME_DIR/SmartAlarmPi
 		fi
 
-		if sudo cp ~/MagicMirror/splashscreen/splash.png $THEME_DIR/MagicMirror/splash.png && sudo cp ~/MagicMirror/splashscreen/MagicMirror.plymouth $THEME_DIR/MagicMirror/MagicMirror.plymouth && sudo cp ~/MagicMirror/splashscreen/MagicMirror.script $THEME_DIR/MagicMirror/MagicMirror.script; then
+		if sudo cp ~/SmartAlarmPi/splashscreen/splash.png $THEME_DIR/SmartAlarmPi/splash.png && sudo cp ~/SmartAlarmPi/splashscreen/SmartAlarmPi.plymouth $THEME_DIR/SmartAlarmPi/SmartAlarmPi.plymouth && sudo cp ~/SmartAlarmPi/splashscreen/SmartAlarmPi.script $THEME_DIR/SmartAlarmPi/SmartAlarmPi.script; then
 			echo -e "\e[90mSplashscreen: Theme copied successfully.\e[0m"
-			if sudo plymouth-set-default-theme -R MagicMirror; then
-				echo -e "\e[92mSplashscreen: Changed theme to MagicMirror successfully.\e[0m"
+			if sudo plymouth-set-default-theme -R SmartAlarmPi; then
+				echo -e "\e[92mSplashscreen: Changed theme to SmartAlarmPi successfully.\e[0m"
 			else
-				echo -e "\e[91mSplashscreen: Couldn't change theme to MagicMirror!\e[0m"
+				echo -e "\e[91mSplashscreen: Couldn't change theme to SmartAlarmPi!\e[0m"
 			fi
 		else
 			echo -e "\e[91mSplashscreen: Copying theme failed!\e[0m"
@@ -148,16 +136,16 @@ else
 	echo -e "\e[93mplymouth is not installed.\e[0m";
 fi
 
-# Use pm2 control like a service MagicMirror
-read -p "Do you want use pm2 for auto starting of your MagicMirror (y/n)?" choice
+# Use pm2 control like a service SmartAlarmPi
+read -p "Do you want use pm2 for auto starting of your SmartAlarmPi (y/n)?" choice
 if [[ $choice =~ ^[Yy]$ ]]; then
     sudo npm install -g pm2
     sudo su -c "env PATH=$PATH:/usr/bin pm2 startup linux -u pi --hp /home/pi"
-    pm2 start ~/MagicMirror/installers/pm2_MagicMirror.json
+    pm2 start ~/SmartAlarmPi/installers/pm2_SmartAlarmPi.json
     pm2 save
 fi
 
 echo " "
-echo -e "\e[92mWe're ready! Run \e[1m\e[97mDISPLAY=:0 npm start\e[0m\e[92m from the ~/MagicMirror directory to start your MagicMirror.\e[0m"
+echo -e "\e[92mWe're ready! Run \e[1m\e[97mDISPLAY=:0 npm start\e[0m\e[92m from the ~/SmartAlarmPi directory to start your SmartAlarmPi.\e[0m"
 echo " "
 echo " "

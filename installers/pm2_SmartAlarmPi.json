@@ -1,0 +1,7 @@
+{
+  "apps" : [{
+    "name"        : "SmartAlarmPi",
+    "script"      : "/home/pi/SmartAlarmPi/installers/mm.sh",
+    "watch"       : ["/home/pi/SmartAlarmPi/config/config.js"]
+  }]
+}
