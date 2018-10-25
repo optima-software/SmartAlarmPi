@@ -45,35 +45,6 @@ When you have a server running remotely and want to connect a standalone client 
 
 **Important:** Make sure that you whitelist the interface/ip in the server config where you want the client to connect to, otherwise it will not be allowed to connect to the server
 
-#### Docker
-
-SmartAlarmPi in server only mode can be deployed using [Docker](https://docker.com). After a successful [Docker installation](https://docs.docker.com/engine/installation/) you just need to execute the following command in the shell:
-
-```bash
-docker run  -d \
-			--publish 80:8080 \
-			--restart always \
-			--volume ~/magic_mirror/config:/opt/magic_mirror/config \
-			--volume ~/magic_mirror/modules:/opt/magic_mirror/modules \
-			--name magic_mirror \
-			bastilimbach/docker-magicmirror
-```
-
-| **Volumes** | **Description** |
-| --- | --- |
-| `/opt/magic_mirror/config` | Mount this volume to insert your own config into the docker container. |
-| `/opt/magic_mirror/modules` | Mount this volume to add your own custom modules into the docker container. |
-
-You may need to add your Docker Host IP to your `ipWhitelist` option. If you have some issues setting up this configuration, check [this forum post](https://forum.magicmirror.builders/topic/1326/ipwhitelist-howto).
-
-```javascript
-var config = {
-	ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:172.17.0.1"]
-};
-```
-
-If you want to run the server on a raspberry pi, use the `raspberry` tag. (bastilimbach/docker-magicmirror:raspberry)
-
 #### Manual
 
 1. Download and install the latest Node.js version.
@@ -84,8 +55,8 @@ If you want to run the server on a raspberry pi, use the `raspberry` tag. (basti
 ### Raspberry Configuration & Auto Start.
 
 The following wiki links are helpful in the configuration of your SmartAlarmPi operating system:
-- [Configuring the Raspberry Pi](https://github.com/MichMich/MagicMirror/wiki/Configuring-the-Raspberry-Pi)
-- [Auto Starting SmartAlarmPi](https://github.com/MichMich/MagicMirror/wiki/Auto-Starting-MagicMirror)
+- [Configuring the Raspberry Pi (MagicMirror)](https://github.com/MichMich/MagicMirror/wiki/Configuring-the-Raspberry-Pi)
+- [Auto Starting SmartAlarmPi (MagicMirror)](https://github.com/MichMich/MagicMirror/wiki/Auto-Starting-MagicMirror)
 
 ### Updating your SmartAlarmPi
 
