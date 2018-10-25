@@ -85,7 +85,7 @@ If you want to run the server on a raspberry pi, use the `raspberry` tag. (basti
 
 The following wiki links are helpful in the configuration of your SmartAlarmPi operating system:
 - [Configuring the Raspberry Pi](https://github.com/MichMich/MagicMirror/wiki/Configuring-the-Raspberry-Pi)
-- [Auto Starting MagicMirror](https://github.com/MichMich/MagicMirror/wiki/Auto-Starting-MagicMirror)
+- [Auto Starting SmartAlarmPi](https://github.com/MichMich/MagicMirror/wiki/Auto-Starting-MagicMirror)
 
 ### Updating your SmartAlarmPi
 
@@ -147,7 +147,7 @@ The following modules are installed by default.
 - [**Hello World**](modules/default/helloworld)
 - [**Alert**](modules/default/alert)
 
-For more available modules, check out out the wiki page: [SmartAlarmPi Modules](https://github.com/MichMich/MagicMirror/wiki/MagicMirror-Modules). If you want to build your own modules, check out the [MagicMirror Module Development Documentation](modules) and don't forget to add it to the wiki and the [forum](https://forum.magicmirror.builders/category/7/showcase)!
+For more available modules, check out out the wiki page: [MagicMirror Modules](https://github.com/MichMich/MagicMirror/wiki/MagicMirror-Modules). If you want to build your own modules, check out the [MagicMirror Module Development Documentation](modules) and don't forget to add it to the wiki and the [forum](https://forum.magicmirror.builders/category/7/showcase)!
 
 ## Known issues
 
@@ -170,8 +170,3 @@ Please keep the following in mind:
 - **New Features**: please please discuss in a GitHub issue before you start to alter a big part of the code. Without discussion upfront, the pull request will not be accepted / merged.
 
 Thanks for your help in making SmartAlarmPi better!
-
-<p align="center">
-<br>
-	<a href="https://forum.magicmirror.builders/topic/728/magicmirror-is-voted-number-1-in-the-magpi-top-50"><img src="https://magicmirror.builders/img/magpi-best-watermark-custom.png" width="150" alt="MagPi Top 50"></a>
-</p>
