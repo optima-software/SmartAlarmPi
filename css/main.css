@@ -1,5 +1,5 @@
 html {
-  /*cursor: none;*/
+  cursor: none;
   overflow: hidden;
   background: #000;
 }
@@ -10,7 +10,7 @@ html {
 
 body {
   background: #000;
-  margin: 4px;
+  margin: 0;
   color: #aaa;
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 400;
@@ -20,14 +20,9 @@ body {
 }
 
 .alarm-pi {
-  /*width: 50vw;
-  height: 50vw;*/
-  width: 480px;
-  height: 480px;
-  border: 1px solid #999;
-  border-radius: 50%;
-  margin: auto;
-  position: relative;
+    border: none;
+    margin: auto;
+    position: relative;
 }
 
 /**
@@ -257,6 +252,11 @@ sup {
   text-align: right;
 }
 
+.region.second.main {
+    margin-top: 40px;
+    text-align: center;
+ }
+
 .region table {
   border-spacing: 0;
   border-collapse: separate;
@@ -396,4 +396,27 @@ progress::-webkit-progress-value {
 @keyframes marquee {
   0%   { transform: translate(0, 0); }
   100% { transform: translate(-100%, 0); }
+}
+
+/* ****************** Swipe ********************* */
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.swipe-wrap > div {
+  float: left;
+  width: 100%;
+  position: relative;
+}
+
+#mySwipe div div {
+
 }
