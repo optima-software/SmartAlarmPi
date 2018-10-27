@@ -25,13 +25,13 @@ Module.register("alarm",{
 		var wrapper = document.createElement("div");
 		wrapper.className = "normal medium";
 		wrapper.id = this.config.wrapperID;
-
+        /*
 		if(this.dataFile){
             wrapper.innerHTML = this.dataFile;
         } else {
             wrapper.innerHTML = this.config.text;
         }
-
+        */
 		return wrapper;
 	},
 
@@ -75,6 +75,9 @@ Module.register("alarm",{
         if(notification === "PROGRESS"){
             this.updateProgressBar(payload);
         }
+        if(notification === "PLAYER-REMOVE"){
+            this.removePlayerText();
+        }
     },
 
     updateProgressBar:function (value) {
@@ -83,5 +86,10 @@ Module.register("alarm",{
             progressBar.value = value;
         }
     },
+
+    removePlayerText: function () {
+	    var player = document.getElementById("playerTxt");
+	    player.innerHTML = "";
+    }
 
 });

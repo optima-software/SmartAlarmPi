@@ -11,12 +11,14 @@ Module.register("helloworld",{
 
 	// Default module config.
 	defaults: {
-		text: "Hello World!"
+		text: "Hello World!",
+        wrapperID: "playerTxt"
 	},
 
 	// Override dom generator.
 	getDom: function() {
 		var wrapper = document.createElement("div");
+        wrapper.id = this.config.wrapperID;
 		wrapper.innerHTML = this.config.text;
 		return wrapper;
 	}

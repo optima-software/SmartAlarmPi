@@ -12,8 +12,10 @@ Module.register("webradio",{
 	// Default module config.
 	defaults: {
 		text: "...loading web radio stations...",
+        headline: "WebRadio",
         dataFile: "webradios.json",
         wrapperID : "webradio",
+        playWrapperID : "playerTxt",
         logLevel : "debug",
         emptyRadio : "Keine Radiostationen gefunden"
 	},
@@ -21,15 +23,24 @@ Module.register("webradio",{
 	// Override dom generator.
 	getDom: function() {
 		let wrapper = document.createElement("div");
-        wrapper.className = "normal medium";
-        wrapper.id = this.config.wrapperID;
-		wrapper.innerHTML = this.config.text;
+        let headline  = document.createElement("div");
+        let content = document.createElement("div");
+
+        headline.innerHTML = this.config.headline;
+        headline.className = "time bright xlarge light radiohl";
+        wrapper.appendChild(headline);
+
+        content.className = "normal medium";
+        content.id = this.config.wrapperID;
+        content.innerHTML = this.config.text;
+        wrapper.appendChild(content);
+
 		return wrapper;
 	},
 
-    updateDom: function () {
-        let wrapper = document.getElementById(this.config.wrapperID);
-        wrapper.innerHTML = this.data;
+    updateDom: function (id, data) {
+        let wrapper = document.getElementById(id);
+        wrapper.innerHTML = data;
     },
 
     getStyles: function () {
@@ -57,8 +68,10 @@ Module.register("webradio",{
 
     socketNotificationReceived: function(notification, payload) {
         if(notification === "DATA"){
-            this.data = payload;
-            this.updateDom();
+            this.updateDom(this.config.wrapperID, payload);
+        }
+        if(notification === "PLAY"){
+            this.updateDom(this.config.playWrapperID, payload);
         }
     }
 });

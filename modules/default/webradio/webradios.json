@@ -55,7 +55,7 @@
     },
     {
         "id": 9,
-        "url": "http://http://www.rautemusik.fm/radio/webplayer/12punks/",
+        "url": "http://www.rautemusik.fm/radio/webplayer/12punks/",
         "title": "12Punks",
         "format": "audio/??"
     },
@@ -337,7 +337,7 @@
     },
     {
         "id": 56,
-        "url": "http://www.antenne.de/webradio/channels/90er-hits.m3u ",
+        "url": "http://www.antenne.de/webradio/channels/90er-hits.m3u",
         "title": "Antenne Bayern 90er",
         "format": "audio/??"
     },

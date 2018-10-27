@@ -10,11 +10,12 @@ const moment = require("moment");
 const NodeHelper = require("node_helper");
 const radioPlayer = require("../alarm/player");
 
-
 module.exports = NodeHelper.create({
 
     config: {},
     btnPrefix: "radio-",
+    marqueeID: "webradioTxt",
+    moduleID: 7,
     jsonData: null,
     player: null,
 
@@ -23,6 +24,7 @@ module.exports = NodeHelper.create({
         this.status = "idle";
         // Set locale
         moment.locale(config.language);
+
     },
 
     log: function (msg, type) {
@@ -58,7 +60,18 @@ module.exports = NodeHelper.create({
             this.player.play(stream, (txt) => {
                 this.status = "play";
                 this.log("We play webradio " + txt + " " + stream['file'], "debug");
+
                 //add text to dom of alarm-module
+                let title = "<div id=\"" + this.marqueeID + "\" class=\"marquee\"><span class=\"bright medium\">\n" +
+                    "<i class=\"fa fa-music\" aria-hidden=\"true\"></i>&nbsp;%TEXT%</span></div>";
+                title = title.replace("%TEXT%", txt);
+                //add stop button
+                let moduleID = this.moduleID;
+                let button = "<button class='playerstop' " +
+                    "onclick='MM.getModules()[" + moduleID + "]._socket.sendNotification(\"STOP\", \"null\")'>\n" +
+                    "<i class=\"fa fa-stop\" aria-hidden=\"true\"></i></button>";
+
+                this.sendSocketNotification("PLAY", title + button);
             });
 
         } else {
@@ -69,10 +82,12 @@ module.exports = NodeHelper.create({
     stopPlayer: function () {
         if (this.player !== null) {
             this.player.stop( () => {
-                this.player = null;
-                this.status = "idle";
-                this.log("Received Stop Signal for player", "debug");
+               //nothing here
             });
+            this.player = null;
+            this.status = "idle";
+            this.sendSocketNotification("PLAY", "");
+            this.log("Received Stop Signal for player", "debug");
         }
     },
 
@@ -95,10 +110,13 @@ module.exports = NodeHelper.create({
             radioTable += "<li>" + this.config.emptyRadio + "</li>";
         } else {
             let prefix = this.btnPrefix;
+            let moduleID = this.moduleID;
             radios.forEach( function (radio) {
                 radioTable += "<li><button class='medium normal radiobtn' " +
                     "id='" + prefix + radio["id"] +"' " +
-                    "onclick='MM.getModules()[6]._socket.sendNotification(\"PLAY\", \"" + radio["id"] +"\")'>\n" +
+                    "onclick='MM.getModules()[" + moduleID + "]._socket.sendNotification(\"PLAY\", \"" + radio["id"] +"\");" +
+                    "mySwipe.slide(0);" +
+                    "'>\n" +
                     radio["title"] + "</button></li>"
             })
         }

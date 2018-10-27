@@ -77,7 +77,7 @@ module.exports = NodeHelper.create({
         this.status = "alarm";
         this.currentAlarm = alarm;
         var dom = "";
-        var title = "<div class=\"marquee\"><span class=\"light small\">\n" +
+        var title = "<div class=\"marquee\"><span class=\"bright medium\">\n" +
             "<i class=\"fa fa-music\" aria-hidden=\"true\"></i>&nbsp;%TEXT%</span></div>";
 
         // Start Alarm Music
@@ -90,6 +90,7 @@ module.exports = NodeHelper.create({
                 } else {
                     dom = this.createOffSlider()+ "<br />" + title;
                 }
+                self.sendSocketNotification("PLAYER-REMOVE", null);
                 self.sendSocketNotification("DATA", dom);
             });
         }
