@@ -20,7 +20,7 @@
 	</script>
 </head>
 <body>
-    <div id='mySwipe' style='max-width:480px; margin:0 auto' class='swipe'>
+    <div id='mySwipe' style='max-width:480px; max-height:480px; margin:0 auto' class='swipe'>
         <div class='swipe-wrap'>
             <div class="alarm-pi">
                 <div class="region fullscreen below"><div class="container"></div></div>
@@ -63,10 +63,10 @@
     <script type="text/javascript">
         var elem = document.getElementById('mySwipe');
         window.mySwipe = Swipe(elem, {
-            startSlide: 0,
+            startSlide: 1,
             // auto: 3000,
             continuous: false,
-            disableScroll: true,
+            //disableScroll: true,
             // stopPropagation: true,
             // callback: function(index, element) {},
             // transitionEnd: function(index, element) {}

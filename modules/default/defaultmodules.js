@@ -17,6 +17,7 @@ var defaultModules = [
 	"helloworld",
 	"newsfeed",
 	"weatherforecast",
+	"webradio",
 	"updatenotification"
 ];
 

@@ -253,8 +253,10 @@ sup {
 }
 
 .region.second.main {
-    margin-top: 40px;
+    height: 400px;
+    margin: 40px 0px 40px 0;
     text-align: center;
+    overflow-y: scroll;
  }
 
 .region table {
@@ -419,4 +421,33 @@ progress::-webkit-progress-value {
 
 #mySwipe div div {
 
+}
+
+/* ****************** Radios ********************* */
+div #webradio {
+    overflow-y: scroll;
+}
+
+#webradio ul {
+    margin: 0;
+    padding: 0;
+}
+
+#webradio ul li {
+    list-style: none;
+}
+
+.radiobtn {
+    background: none;
+    border: none;
+}
+
+.radiobtn:active {
+    box-shadow: none;
+    transition-duration: 0.4s;
+    color: #999;
+}
+
+.radiobtn:focus {
+    outline: 0px;
 }
