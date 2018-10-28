@@ -75,8 +75,6 @@
     "socket.io": "^2.1.1",
     "speaker": "^0.4.1",
     "spotify-web-api-node": "^2.5.0",
-    "stream-player": "github:rgeraldporter/node-stream-player",
-    "system-control": "github:RyanAfrish7/system-control",
     "valid-url": "latest",
     "walk": "^2.3.14"
   }
