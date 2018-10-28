@@ -483,3 +483,16 @@ div #webradio {
 .playerstop:focus {
     outline: 0px;
 }
+
+/* ****************** Swipe Dots ********************* */
+
+.dots {
+}
+
+.passive {
+    color: #666;
+}
+
+.active {
+    color: #fff;
+}

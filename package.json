@@ -1,7 +1,7 @@
 {
-  "name": "magicmirror",
-  "version": "2.1.3",
-  "description": "The open source modular smart mirror platform.",
+  "name": "smartalarmpi",
+  "version": "1.0.0",
+  "description": "SmartAlarmPi is an open source modular smart alarm platform based on MagicMirror²",
   "main": "js/electron.js",
   "scripts": {
     "start": "sh run-start.sh",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MichMich/MagicMirror.git"
+    "url": "git+https://github.com:optima-software/SmartAlarmPi.git"
   },
   "keywords": [
     "magic mirror",
@@ -29,9 +29,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MichMich/MagicMirror/issues"
+    "url": "https://github.com/optima-software/SmartAlarmPi/issues"
   },
-  "homepage": "https://magicmirror.builders",
+  "homepage": "https://optima-software.de",
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
