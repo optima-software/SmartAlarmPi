@@ -1,0 +1,7 @@
+{
+  "apps" : [{
+    "name"        : "SmartAlarmPi-ServerOnly",
+    "script"      : "/home/pi/SmartAlarmPi/installers/so.sh",
+    "watch"       : ["/home/pi/SmartAlarmPi/config/config.js"]
+  }]
+}

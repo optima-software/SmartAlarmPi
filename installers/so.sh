@@ -1,0 +1,2 @@
+cd ~/SmartAlarmPi
+node serveronly
