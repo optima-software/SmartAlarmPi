@@ -15,7 +15,7 @@ module.exports = NodeHelper.create({
     config: {},
     btnPrefix: "radio-",
     marqueeID: "webradioTxt",
-    moduleID: 7,
+    moduleID: 5,
     jsonData: null,
     player: null,
 

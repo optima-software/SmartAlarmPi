@@ -31,6 +31,7 @@ module.exports = NodeHelper.create({
         weatherEndpoint: "forecast",
     },
     blockedAlarms: [],
+    moduleID: 3,
 
     start: function() {
         // Set status
@@ -162,8 +163,9 @@ module.exports = NodeHelper.create({
     },
 
     createSnoozeButton: function () {
+        let moduleID = this.moduleID;
         return  "<button class='actionbtn medium bright snooze' " +
-                "onclick='MM.getModules()[5]._socket.sendNotification(\"SNOOZE\", \"null\")'>\n" +
+                "onclick='MM.getModules()[" + moduleID + "]._socket.sendNotification(\"SNOOZE\", \"null\")'>\n" +
                 "<i class=\"fa fa-bed\" aria-hidden=\"true\"></i>\n" +
                 "</button>";
         /* @fixme MM.getModules()[5] -> should be MM.getModulesByName('alarm') in main.js */
@@ -201,18 +203,19 @@ module.exports = NodeHelper.create({
     createOffSlider: function () {
         return  "<label class='switch'>" +
                 "<input type='checkbox' " +
-                "onchange='MM.getModules()[5]._socket.sendNotification(\"OFF\", \"this\")'>\n"+
+                "onchange='MM.getModules()[" + moduleID + "]._socket.sendNotification(\"OFF\", \"this\")'>\n"+
                 "<span id='offSlider' class='slider light bright round small'>\n" +
                 "<i class=\"fa fa-power-off\" aria-hidden=\"true\"></i>" +
                 "</span></label>";
     },
     */
     createOffButton: function () {
-    return  "<button class='actionbtn medium bright off' " +
-            "onclick='MM.getModules()[5]._socket.sendNotification(\"OFF\", \"this\")'>\n" +
+        let moduleID = this.moduleID;
+        return  "<button class='actionbtn medium bright off' " +
+            "onclick='MM.getModules()[" + moduleID + "]._socket.sendNotification(\"OFF\", \"this\")'>\n" +
             "<i class=\"fa fa-power-off\" aria-hidden=\"true\"></i>"+
             "</button>";
-    /* @fixme MM.getModules()[5] -> should be MM.getModulesByName('alarm') in main.js */
+        /* @fixme MM.getModules()[5] -> should be MM.getModulesByName('alarm') in main.js */
     },
 
     readData: function() {
