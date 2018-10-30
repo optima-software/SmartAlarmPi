@@ -1,4 +1,4 @@
-# Module: News Feed
+diu# Module: News Feed
 The `newsfeed ` module is one of the default modules of the MagicMirror.
 This module displays news headlines based on an RSS feed. Scrolling through news headlines happens time-based (````updateInterval````), but can also be controlled by sending news feed specific notifications to the module.
 

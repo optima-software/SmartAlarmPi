@@ -30,7 +30,7 @@ Module.register("webradio",{
         headline.className = "time bright xlarge light radiohl";
         wrapper.appendChild(headline);
 
-        content.className = "normal medium";
+        content.className = "normal";
         content.id = this.config.wrapperID;
         content.innerHTML = this.config.text;
         wrapper.appendChild(content);

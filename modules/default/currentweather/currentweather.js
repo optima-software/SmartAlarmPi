@@ -188,7 +188,7 @@ Module.register("currentweather",{
 		}
 
 		var large = document.createElement("div");
-		large.className = "normal medium";
+		large.className = "normal large";
 		large.innerHTML = this.config.location + "&nbsp;";
 
 		var weatherIcon = document.createElement("span");

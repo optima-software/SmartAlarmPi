@@ -160,14 +160,14 @@ Module.register("newsfeed",{
 
 			if(!this.config.showFullArticle){
 				var title = document.createElement("div");
-				title.className = "medium light" + (!this.config.wrapTitle ? " no-wrap" : "");
+				title.className = "medium normal" + (!this.config.wrapTitle ? " no-wrap" : "");
 				title.innerHTML = this.newsItems[this.activeItem].title;
 				wrapper.appendChild(title);
 			}
 
 			if (this.config.showDescription) {
 				var description = document.createElement("div");
-				description.className = "small light" + (!this.config.wrapDescription ? " no-wrap" : "");
+				description.className = "small normal" + (!this.config.wrapDescription ? " no-wrap" : "");
 				description.innerHTML = this.newsItems[this.activeItem].description;
 				wrapper.appendChild(description);
 			}

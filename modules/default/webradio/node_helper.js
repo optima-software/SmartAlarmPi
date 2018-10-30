@@ -62,12 +62,12 @@ module.exports = NodeHelper.create({
                 this.log("We play webradio " + txt + " " + stream['file'], "debug");
 
                 //add text to dom of alarm-module
-                let title = "<div id=\"" + this.marqueeID + "\" class=\"marquee\"><span class=\"bright medium\">\n" +
+                let title = "<div id=\"" + this.marqueeID + "\" class=\"marquee\"><span class=\"normal medium\">\n" +
                     "<i class=\"fa fa-music\" aria-hidden=\"true\"></i>&nbsp;%TEXT%</span></div>";
                 title = title.replace("%TEXT%", txt);
                 //add stop button
                 let moduleID = this.moduleID;
-                let button = "<button class='playerstop' " +
+                let button = "<button class='actionbtn medium bright' " +
                     "onclick='MM.getModules()[" + moduleID + "]._socket.sendNotification(\"STOP\", \"null\")'>\n" +
                     "<i class=\"fa fa-stop\" aria-hidden=\"true\"></i></button>";
 
@@ -112,7 +112,7 @@ module.exports = NodeHelper.create({
             let prefix = this.btnPrefix;
             let moduleID = this.moduleID;
             radios.forEach( function (radio) {
-                radioTable += "<li><button class='medium normal radiobtn' " +
+                radioTable += "<li><button class='normal large radiobtn' " +
                     "id='" + prefix + radio["id"] +"' " +
                     "onclick='MM.getModules()[" + moduleID + "]._socket.sendNotification(\"PLAY\", \"" + radio["id"] +"\");" +
                     "mySwipe.slide(0);" +

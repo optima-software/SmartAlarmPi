@@ -1,22 +1,22 @@
 html {
-  cursor: none;
-  overflow: hidden;
-  background: #000;
+    cursor: none;
+    overflow: hidden;
+    background: #000;
 }
 
 ::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 body {
-  background: #fafafa;
-  margin: 0;
-  color: #aaa;
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 400;
-  font-size: 2em;
-  line-height: 1.5em;
-  -webkit-font-smoothing: antialiased;
+    background: #fafafa;
+    margin: 0;
+    color: #aaa;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    line-height: 1.5em;
+    -webkit-font-smoothing: antialiased;
 }
 
 .alarm-pi {
@@ -34,86 +34,86 @@ body {
  */
 
 .dimmed {
-  color: #666;
+    color: #666;
 }
 
 .normal {
-  color: #999;
+    color: #999;
 }
 
 .bright {
-  color: #fff;
+    color: #fff;
 }
 
 .xsmall {
-  font-size: 10px;
-  line-height: 15px;
+    font-size: 10px;
+    line-height: 15px;
 }
 
 .small {
-  font-size: 15px;
-  line-height: 20px;
+    font-size: 15px;
+    line-height: 20px;
 }
 
 .medium {
-  font-size: 20px;
-  line-height: 25px;
+    font-size: 22px;
+    line-height: 25px;
 }
 
 .large {
-  font-size: 40px;
-  line-height: 45px;
+    font-size: 32px;
+    line-height: 35px;
 }
 
 .xlarge {
-  font-size: 55px;
-  line-height: 50px;
-  letter-spacing: -3px;
+    font-size: 80px;
+    line-height: 80px;
+    letter-spacing: -3px;
 }
 
 .thin {
-  font-family: Roboto, sans-serif;
-  font-weight: 100;
+    font-family: Roboto, sans-serif;
+    font-weight: 100;
 }
 
 .light {
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 300;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 300;
 }
 
 .regular {
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 400;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 400;
 }
 
 .bold {
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 700;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 700;
 }
 
 .align-right {
-  text-align: right;
+    text-align: right;
 }
 
 .align-left {
-  text-align: left;
+    text-align: left;
 }
 
 header {
-  text-transform: uppercase;
-  font-size: 15px;
-  font-family: "Roboto Condensed";
-  font-weight: 400;
-  border-bottom: 1px solid #666;
-  line-height: 15px;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-  color: #999;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-family: "Roboto Condensed";
+    font-weight: 400;
+    border-bottom: 1px solid #666;
+    line-height: 15px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    color: #999;
 }
 
 sup {
-  font-size: 50%;
-  line-height: 50%;
+    font-size: 50%;
+    line-height: 50%;
 }
 
 /**
@@ -121,18 +121,18 @@ sup {
  */
 
 .module {
-  /*margin-bottom: 30px;*/
+    /*margin-bottom: 30px;*/
 }
 
 .region.bottom .module {
-  /*margin-top: 30px;
-  margin-bottom: 0;*/
+    /*margin-top: 30px;
+    margin-bottom: 0;*/
 }
 
 .no-wrap {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /**
@@ -140,87 +140,93 @@ sup {
  */
 
 .region {
-  /*position: absolute;*/
+    /*position: absolute;*/
 }
 
 .region.fullscreen {
-  /*position: absolute;
-  top: -60px;
-  left: -60px;
-  right: -60px;
-  bottom: -60px;*/
-  pointer-events: none;
+    /*position: absolute;
+    top: -60px;
+    left: -60px;
+    right: -60px;
+    bottom: -60px;*/
+    pointer-events: none;
 }
 
 .region.fullscreen * {
-  pointer-events: auto;
+    pointer-events: auto;
 }
 
 .region.right {
-  /*right: 0;*/
+    /*right: 0;*/
 }
 
-.region.top {
-  margin-top: 40px;
+.region.top.center {
+    margin-top: 35px;
 }
 
 .region.top .container {
-  margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .region.top .container:empty {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .region.top.center,
 .region.bottom.center {
-  /*left: 50%;
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);*/
+    /*left: 50%;
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);*/
 }
 
 .region.top.right,
 .region.top.left,
 .region.top.center {
- 
+
 }
 
 .region.top.center {
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 .region.bottom {
-  /*bottom: 0;*/
+    position: absolute;
+    bottom: -10px;
+}
+
+.region.bottom.center {
+    margin-left: 200px;
+    width: 80px;
+    text-align: center;
 }
 
 .region.bottom .container {
-  margin-top: 25px;
+    /*margin-top: 25px;*/
 }
 
 .region.bottom .container:empty {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 .region.bottom.right,
 .region.bottom.center,
 .region.bottom.left {
-  bottom: 100%;
+    bottom: 0px;
 }
 
 .region.bar {
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 .region.third,
 .region.middle.center {
-  text-align: center;
-  width: 100% 
-  /*width: 100%;
+    text-align: center;
+    width: 100% /*width: 100%;
   text-align: center;
   -moz-transform: translateY(-50%);
   -o-transform: translateY(-50%);
@@ -230,31 +236,31 @@ sup {
 }
 
 .region.upper.third {
-  top: 10%;
-  height: 90px;
-  overflow: hidden;
+    top: 10%;
+    height: 90px;
+    overflow: hidden;
 }
 
 .region.upper.third div.module-content {
-  max-height: 70px;
-  overflow: hidden;
+    max-height: 70px;
+    overflow: hidden;
 }
 
 .region.middle.center {
-  top: 40px;
+    top: 40px;
 }
 
 .region.lower.third {
-  bottom: 10px;
-  position: absolute;
+    bottom: 15px;
+    position: absolute;
 }
 
 .region.left {
-  text-align: left;
+    text-align: left;
 }
 
 .region.right {
-  text-align: right;
+    text-align: right;
 }
 
 .region.second.main {
@@ -262,79 +268,87 @@ sup {
     margin: 40px 0px 40px 0;
     text-align: center;
     overflow-y: scroll;
- }
+}
 
 .region table {
-  border-spacing: 0;
-  border-collapse: separate;
+    border-spacing: 0;
+    border-collapse: separate;
 }
 
 /* ****************** snooze button ********************* */
 
+.actionbtn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.4), 0px 0px 1px #ccc, 0px 0px 1px #ccc;
+    background-color: #e54028;
+    transition-duration: 0.4s;
+    color: #fff;
+    margin: 0 10px;
+    z-index: 99;
+}
+
+.actionbtn:active {
+    box-shadow: none;
+    color: #666;
+    transition-duration: 0.4s;
+}
+
+.actionbtn:focus {
+    outline: 0px;
+}
+
 .snooze {
-  width: 8vw;
-  height: 8vw;
-  border-radius: 50%;
-  border: none;
-  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4), 0px 0px 2px #fff, 0px 0px 10px #ccc;
-  background:
-    -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
-    -webkit-linear-gradient(left, #e54028, #e54028);
-  transition-duration: 0.4s;
-}
-
-.snooze:active {
-  box-shadow: none;
-  transition-duration: 0.4s;
-}
-
-.snooze:focus {
-  outline: 0px;
+    background-color: darkolivegreen;
 }
 
 /* ****************** switch slider ********************* */
 
 .switch {
-  position: relative;
-  display: inline-block;
-  width: 80px;
-  height: 22px;
-  margin-top: 14px;
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 22px;
+    margin-top: 14px;
 }
 
-.switch input {display:none;}
+.switch input {
+    display: none;
+}
+
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000;
-  transition: 0.4s;
-  padding: 2px;
-  text-align: center;
-  box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    transition: 0.4s;
+    padding: 2px;
+    text-align: center;
+    box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
 }
 
 .slider:before {
-  position: absolute;
-  content: "";
-  height: 12px;
-  width: 18px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
-  background:
-    -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
     -webkit-linear-gradient(left, #e54028, #e54028);
 }
 
 input:checked + .slider {
-  /*hintergrund nach switch */
-  color: #000;
-  transition: 0.4s;
+    /*hintergrund nach switch */
+    color: #000;
+    transition: 0.4s;
 }
 
 input:focus + .slider {
@@ -342,86 +356,93 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translateX(52px);
+    transform: translateX(52px);
 }
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 50px;
+    border-radius: 50px;
 }
 
 .slider.round:before {
-  border-radius: 50px;
+    border-radius: 50px;
 }
 
 /* ****************** progress bar ********************* */
 progress {
-  width: 12vw;
-  height: 14px;
-  /* Important Thing */
-  -webkit-appearance: none;
-  border: none;
+    width: 12vw;
+    height: 14px;
+    /* Important Thing */
+    -webkit-appearance: none;
+    border: none;
 }
 
 /* All good till now. Now we'll style the background */
 progress::-webkit-progress-bar {
-  background: black;
-  border-radius: 50px;
-  padding: 2px;
-  box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+    background: black;
+    border-radius: 50px;
+    padding: 2px;
+    box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
 }
 
 /* Now the value part */
 progress::-webkit-progress-value {
-  border-radius: 50px;
-  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
-  background:
-    -webkit-linear-gradient(45deg, transparent, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%),
+    border-radius: 50px;
+    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+    background: -webkit-linear-gradient(45deg, transparent, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%),
     -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
     -webkit-linear-gradient(left, #e54028, #e54028);
-  background-size: 25px 14px, 100% 100%, 100% 100%;
+    background-size: 25px 14px, 100% 100%, 100% 100%;
 }
 
 /* ****************** Music Marquee ********************* */
 
 .marquee {
-  width: 360px;
-  margin: 0 auto;
-  white-space: nowrap;
-  overflow: hidden;
-  box-sizing: border-box;
+    width: 420px;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#alarm .marquee {
+    margin-top: 30px;
 }
 
 .marquee span {
-  display: inline-block;
-  padding-left: 100%;  /* show the marquee just outside the paragraph */
-  animation: marquee 15s linear infinite;
-  -webkit-animation: marquee 15s linear infinite;
+    display: inline-block;
+    padding-left: 100%; /* show the marquee just outside the paragraph */
+    animation: marquee 15s linear infinite;
+    -webkit-animation: marquee 15s linear infinite;
 }
 
 /* Make it move */
 @keyframes marquee {
-  0%   { transform: translate(0, 0); }
-  100% { transform: translate(-100%, 0); }
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, 0);
+    }
 }
 
 /* ****************** Swipe ********************* */
 
 .swipe {
-  overflow: hidden;
-  visibility: hidden;
-  position: relative;
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
 }
 
 .swipe-wrap {
-  overflow: hidden;
-  position: relative;
+    overflow: hidden;
+    position: relative;
 }
 
 .swipe-wrap > div {
-  float: left;
-  width: 100%;
-  position: relative;
+    float: left;
+    width: 100%;
+    position: relative;
 }
 
 #mySwipe div div {
@@ -440,6 +461,10 @@ div #webradio {
 
 #webradio ul li {
     list-style: none;
+    width: 480px;
+    overflow: hidden;
+    line-height: 50px;
+    white-space: nowrap;
 }
 
 .radiobtn {
@@ -460,33 +485,10 @@ div #webradio {
     margin: 30px 0 30px 0;
 }
 
-
-.playerstop {
-    width: 4vw;
-    height: 4vw;
-    border-radius: 10%;
-    border: none;
-    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4), 0px 0px 2px #fff, 0px 0px 10px #ccc;
-    background:
-            -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
-            -webkit-linear-gradient(left, #e54028, #e54028);
-    transition-duration: 0.4s;
-    color: #fff;
-}
-
-.playerstop:active {
-    box-shadow: none;
-    color: #000;
-    transition-duration: 0.4s;
-}
-
-.playerstop:focus {
-    outline: 0px;
-}
-
 /* ****************** Swipe Dots ********************* */
 
 .dots {
+
 }
 
 .passive {

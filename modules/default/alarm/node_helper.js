@@ -77,7 +77,7 @@ module.exports = NodeHelper.create({
         this.status = "alarm";
         this.currentAlarm = alarm;
         var dom = "";
-        var title = "<div class=\"marquee\"><span class=\"bright medium\">\n" +
+        var title = "<div class=\"marquee\"><span class=\"normal medium\">\n" +
             "<i class=\"fa fa-music\" aria-hidden=\"true\"></i>&nbsp;%TEXT%</span></div>";
 
         // Start Alarm Music
@@ -86,9 +86,9 @@ module.exports = NodeHelper.create({
             this.player.play(alarm["sound"], (txt) => {
                 title = title.replace("%TEXT%", txt);
                 if (alarm["snooze"] > 0 ) {
-                    dom = this.createSnoozeButton() + "<br />" + this.createOffSlider()+ "<br />" + title;
+                    dom = this.createSnoozeButton() + this.createOffButton()+ "<br />" + title;
                 } else {
-                    dom = this.createOffSlider()+ "<br />" + title;
+                    dom = this.createOffButton()+ "<br />" + title;
                 }
                 self.sendSocketNotification("PLAYER-REMOVE", null);
                 self.sendSocketNotification("DATA", dom);
@@ -162,7 +162,7 @@ module.exports = NodeHelper.create({
     },
 
     createSnoozeButton: function () {
-        return  "<button class='snooze medium bright' " +
+        return  "<button class='actionbtn medium bright snooze' " +
                 "onclick='MM.getModules()[5]._socket.sendNotification(\"SNOOZE\", \"null\")'>\n" +
                 "<i class=\"fa fa-bed\" aria-hidden=\"true\"></i>\n" +
                 "</button>";
@@ -186,18 +186,18 @@ module.exports = NodeHelper.create({
             }
         }, 1000);
 
-        return  "<span class='light small bright'>\n" +
+        return  this.createOffButton() + "<br />\n"+
+                "<span class='light small bright'>\n" +
                 "<i class=\"fa fa-bed\" aria-hidden=\"true\"></i>\n" +
                 "</span><br />" +
-                "<progress class='light small bright' value='0' max='" + sec + "' id='progressBar'></progress><br />\n"+
-                this.createOffSlider();
+                "<progress class='light small bright' value='0' max='" + sec + "' id='progressBar'></progress>\n";
     },
 
     unsetSnoozeTimer: function () {
         clearTimeout(this.snoozeTimer);
         this.snoozeTimer = null;
     },
-
+    /*
     createOffSlider: function () {
         return  "<label class='switch'>" +
                 "<input type='checkbox' " +
@@ -205,7 +205,14 @@ module.exports = NodeHelper.create({
                 "<span id='offSlider' class='slider light bright round small'>\n" +
                 "<i class=\"fa fa-power-off\" aria-hidden=\"true\"></i>" +
                 "</span></label>";
-        /* @fixme MM.getModules()[5] -> should be MM.getModulesByName('alarm') in main.js */
+    },
+    */
+    createOffButton: function () {
+    return  "<button class='actionbtn medium bright off' " +
+            "onclick='MM.getModules()[5]._socket.sendNotification(\"OFF\", \"this\")'>\n" +
+            "<i class=\"fa fa-power-off\" aria-hidden=\"true\"></i>"+
+            "</button>";
+    /* @fixme MM.getModules()[5] -> should be MM.getModulesByName('alarm') in main.js */
     },
 
     readData: function() {
@@ -335,10 +342,10 @@ module.exports = NodeHelper.create({
         //Display Output
         if ( nextAlarm.isSame(now, "day") ){
             return "Nächster Alarm (" + nextAlarmVals["name"] + "):<br />" +
-                "<span class=\"bright\">Heute " + nextAlarm.format("HH:mm")+ " Uhr" + trafficIcon +"</span>";
+                "<span class=\"bright large\"><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i>&nbsp;Heute " + nextAlarm.format("HH:mm")+ " Uhr" + trafficIcon +"</span>";
         }
         return "Nächster Alarm (" + nextAlarmVals["name"] + "):<br />" +
-            "<span class=\"bright\">" + nextAlarm.format("dddd HH:mm") + " Uhr" + trafficIcon +"</span>";
+            "<span class=\"bright large\"><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i>&nbsp;" + nextAlarm.format("dddd HH:mm") + " Uhr" + trafficIcon +"</span>";
     },
 
     speak: function (msg) {
