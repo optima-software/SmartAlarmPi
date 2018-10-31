@@ -278,15 +278,15 @@ sup {
 /* ****************** snooze button ********************* */
 
 .actionbtn {
-    width: 60px;
-    height: 60px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     border: none;
     box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.4), 0px 0px 1px #ccc, 0px 0px 1px #ccc;
     background-color: #e54028;
     transition-duration: 0.4s;
     color: #fff;
-    margin: 0 10px;
+    margin: 0 50px;
     z-index: 99;
 }
 
