@@ -52,7 +52,7 @@
     "active": "1",
     "type": "d",
     "days": "none",
-    "time": "19:24",
+    "time": "18:32",
     "snooze": "1",
     "sound": {
       "file": "http://mp3.ffh.de/radioffh/hqlivestream.mp3",
@@ -60,7 +60,8 @@
     },
     "traffic": {
       "destinationAddress": "Bahnhofstrasse 55, 90402 Nürnberg, Deutschland",
-      "mode": "driving"
+      "mode": "driving",
+      "check_before": 90
     }
   }
 ]

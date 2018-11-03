@@ -61,7 +61,8 @@ Module.register("webradio",{
     },
 
     start: function() {
-        this.sendSocketNotification("START", this.config);
+        this.config["moduleID"] = this.data.index;
+	    this.sendSocketNotification("START", this.config);
         let self = this;
 
     },

@@ -14,7 +14,7 @@ Module.register("alarm",{
 		dataFile: "alarms.json",
         wrapperID : "alarm",
         emptyAlarm : "Kein Alarm eingestellt",
-        updateInterval: 60 * 1000, //reads the file every min
+        updateInterval: 15 * 60 * 1000, //reads the file every 15 min
         logLevel : "debug",
         musicFolder : "/music/",
         greating : "Meister",
@@ -58,6 +58,7 @@ Module.register("alarm",{
 	},
 
 	start: function() {
+        this.config["moduleID"] = this.data.index;
 	    this.sendSocketNotification("START", this.config);
 
 	    var self = this;

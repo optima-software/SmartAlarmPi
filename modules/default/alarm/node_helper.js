@@ -31,7 +31,6 @@ module.exports = NodeHelper.create({
         weatherEndpoint: "forecast",
     },
     blockedAlarms: [],
-    moduleID: 3,
 
     start: function() {
         // Set status
@@ -61,7 +60,8 @@ module.exports = NodeHelper.create({
         this.log("Next alarm defined -" + alarmData["name"] + "- for " +
             moment().add(sec, "s").format("dddd DD.MM.YYYY HH:mm:ss"), "debug");
 
-        if (alarmData["traffic"]["destinationAddress"] !== ""){
+        let check_before = alarmData["traffic"]["check_before"] > 0 ? alarmData["traffic"]["check_before"] : 60;
+        if (alarmData["traffic"]["destinationAddress"] !== "" && alarmMins < check_before ){
             this.setTrafficDelay (alarmData);
         }
     },
@@ -163,12 +163,11 @@ module.exports = NodeHelper.create({
     },
 
     createSnoozeButton: function () {
-        let moduleID = this.moduleID;
+        let moduleID = this.config.moduleID;
         return  "<button class='actionbtn medium bright snooze' " +
                 "onclick='MM.getModules()[" + moduleID + "]._socket.sendNotification(\"SNOOZE\", \"null\")'>\n" +
                 "<i class=\"fa fa-bed\" aria-hidden=\"true\"></i>\n" +
                 "</button>";
-        /* @fixme MM.getModules()[5] -> should be MM.getModulesByName('alarm') in main.js */
     },
 
     sleep: function (seconds) {
@@ -210,12 +209,11 @@ module.exports = NodeHelper.create({
     },
     */
     createOffButton: function () {
-        let moduleID = this.moduleID;
+        let moduleID = this.config.moduleID;
         return  "<button class='actionbtn medium bright off' " +
             "onclick='MM.getModules()[" + moduleID + "]._socket.sendNotification(\"OFF\", \"this\")'>\n" +
             "<i class=\"fa fa-power-off\" aria-hidden=\"true\"></i>"+
             "</button>";
-        /* @fixme MM.getModules()[5] -> should be MM.getModulesByName('alarm') in main.js */
     },
 
     readData: function() {
@@ -490,17 +488,20 @@ module.exports = NodeHelper.create({
             return callback("No origin or destination address set for traffic forecast");
         }
         this.getGeocode(this.config.trafficforecast.originAddress, (err, response) => {
+            this.log("Call Google Geocoding API", "debug");
             if (err) {
                 return callback(err);
             }
             var origin = response;
             this.getGeocode(alarm["traffic"]["destinationAddress"], (err, response) => {
+                this.log("Call Google Geocoding API", "debug");
                 if (err) {
                     return callback(err);
                 }
                 var destination = response;
                 if (origin && destination) {
                     this.getDirection(origin, destination, alarm, (err, response) => {
+                        this.log("Call Google Directions API", "debug");
                         if (err) {
                             return callback(err);
                         }

@@ -15,7 +15,6 @@ module.exports = NodeHelper.create({
     config: {},
     btnPrefix: "radio-",
     marqueeID: "webradioTxt",
-    moduleID: 5,
     jsonData: null,
     player: null,
 
@@ -66,7 +65,7 @@ module.exports = NodeHelper.create({
                     "<i class=\"fa fa-music\" aria-hidden=\"true\"></i>&nbsp;%TEXT%</span></div>";
                 title = title.replace("%TEXT%", txt);
                 //add stop button
-                let moduleID = this.moduleID;
+                let moduleID = this.config.moduleID;
                 let button = "<button class='actionbtn medium bright' " +
                     "onclick='MM.getModules()[" + moduleID + "]._socket.sendNotification(\"STOP\", \"null\")'>\n" +
                     "<i class=\"fa fa-stop\" aria-hidden=\"true\"></i></button>";
@@ -110,7 +109,7 @@ module.exports = NodeHelper.create({
             radioTable += "<li>" + this.config.emptyRadio + "</li>";
         } else {
             let prefix = this.btnPrefix;
-            let moduleID = this.moduleID;
+            let moduleID = this.config.moduleID;
             radios.forEach( function (radio) {
                 radioTable += "<li><button class='normal large radiobtn' " +
                     "id='" + prefix + radio["id"] +"' " +
