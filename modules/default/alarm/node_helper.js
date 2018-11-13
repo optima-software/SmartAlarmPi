@@ -13,6 +13,7 @@ const NodeHelper = require("node_helper");
 const request = require("request");
 const say = require("say");
 const googleMapsClient = require("@google/maps");
+const brightness = require('brightness');
 
 const alarmPlayer = require("./player");
 
@@ -100,6 +101,10 @@ module.exports = NodeHelper.create({
     socketNotificationReceived: function(notification, payload) {
         if(notification === "START"){
             this.config = payload;
+
+            brightness.set(0.2).then(() => {
+                this.log('Changed brightness to 20%', "debug");
+            });
 
             this.readData();
             setInterval(() => {
