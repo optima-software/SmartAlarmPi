@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="rapi-alarm01" uploadOnCheckin="43250dd3-6caf-4adc-a2aa-fe8d96bc4b24">
+    <serverData>
+      <paths name="rapi-alarm01">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myUploadOnCheckinName" value="rapi-alarm01" />
+  </component>
+</project>
