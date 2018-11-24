@@ -209,7 +209,7 @@ sup {
 
 .region.bottom {
     position: absolute;
-    bottom: -10px;
+    bottom: 0px;
 }
 
 .region.bottom.center {
@@ -235,6 +235,7 @@ sup {
 .region.bar {
     width: 100%;
     text-align: center;
+    line-height: 10px;
 }
 
 .region.third,
@@ -265,7 +266,7 @@ sup {
 }
 
 .region.lower.third {
-    bottom: 15px;
+    bottom: 20px;
     position: absolute;
 }
 
@@ -278,8 +279,8 @@ sup {
 }
 
 .region.second.main {
-    height: 400px;
-    margin: 40px 0 40px 0;
+    height: 440px;
+    margin: 20px 0 0 0;
     text-align: center;
     overflow-y: scroll;
 }
@@ -502,7 +503,7 @@ div #webradio {
 /* ****************** Swipe Dots ********************* */
 
 .dots {
-
+    padding: 0 2px 0 2px;
 }
 
 .passive {
