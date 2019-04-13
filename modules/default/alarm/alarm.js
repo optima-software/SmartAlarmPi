@@ -17,7 +17,7 @@ Module.register("alarm",{
         updateInterval: 15 * 60 * 1000, //reads the file every 15 min
         logLevel : "debug",
         musicFolder : "/music/",
-        greating : "Meister",
+        greating : "",
 	},
 
 	// Override dom generator.

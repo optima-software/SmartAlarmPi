@@ -1,34 +1,36 @@
 [
   {
-    "name": "Custom",
-    "active": "0",
+    "name": "Samstag",
+    "active": "1",
     "type": "c",
-    "days": "Mo,Di,Mi,So",
-    "time": "05:51",
+    "days": "Sa",
+    "time": "08:00",
     "snooze": "10",
     "sound": {
-      "file": "Nana Mouskouri - Guten Morgen Sonnenschein.mp3",
-      "text": "Nana Mouskouri - Guten Morgen Sonnenschein"
+      "file": "http://www.antenne.de/webradio/channels/chillout.m3u",
+      "text": "Antenne Bayern Chillout"
     },
     "traffic": {
-      "destinationAddress": "Bahnhofstrasse 55, 90402 Nürnberg, Deutschland",
-      "mode": "driving"
+      "destinationAddress": "Ruoffstraße 20, 92224 Amberg, Deutschland",
+      "mode": "driving",
+      "check_before": 30
     }
   },
   {
-    "name": "Workday",
-    "active": "0",
+    "name": "Arbeitstag",
+    "active": "1",
     "type": "w",
     "days": "none",
-    "time": "23:07",
-    "snooze": "1",
+    "time": "05:45",
+    "snooze": "5",
     "sound": {
       "file": "http://www.rockantenne.de/webradio/rockantenne.m3u",
       "text": "Rock Antenne"
     },
     "traffic": {
       "destinationAddress": "Bahnhofstrasse 55, 90402 Nürnberg, Deutschland",
-      "mode": "driving"
+      "mode": "driving",
+      "check_before": 60
     }
   },
   {
@@ -36,15 +38,11 @@
     "active": "0",
     "type": "s",
     "days": "none",
-    "time": "20:42",
+    "time": "17:06",
     "snooze": "1",
     "sound": {
-      "file": "Lauter Maffiosi.mp3",
-      "text": "Gerhard Polt - Lauter Maffiosi"
-    },
-    "traffic": {
-      "destinationAddress": "Bahnhofstrasse 55, 90402 Nürnberg, Deutschland",
-      "mode": "driving"
+      "file": "Pop/Nana Mouskouri - Guten Morgen Sonnenschein.mp3",
+      "text": "Guten Morgen Sonnenschein"
     }
   },
   {
@@ -52,16 +50,11 @@
     "active": "1",
     "type": "d",
     "days": "none",
-    "time": "20:11",
+    "time": "17:34",
     "snooze": "1",
     "sound": {
-      "file": "http://mp3.ffh.de/radioffh/hqlivestream.mp3",
-      "text": "Webradio FFH"
-    },
-    "traffic": {
-      "destinationAddress": "Bahnhofstrasse 55, 90402 Nürnberg, Deutschland",
-      "mode": "driving",
-      "check_before": 90
+      "file": "Pop/Nana Mouskouri - Guten Morgen Sonnenschein.mp3",
+      "text": "Guten Morgen Sonnenschein"
     }
   }
 ]

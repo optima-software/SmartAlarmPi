@@ -59,10 +59,11 @@ module.exports = NodeHelper.create({
 
         this.log("Next alarm defined -" + alarmData["name"] + "- for " +
             moment().add(sec, "s").format("dddd DD.MM.YYYY HH:mm:ss"), "debug");
-
-        let check_before = alarmData["traffic"]["check_before"] > 0 ? alarmData["traffic"]["check_before"] : 60;
-        if (alarmData["traffic"]["destinationAddress"] !== "" && alarmMins < check_before ){
-            this.setTrafficDelay (alarmData);
+        if (alarmData["traffic"]) {
+            let check_before = alarmData["traffic"]["check_before"] > 0 ? alarmData["traffic"]["check_before"] : 60;
+            if (alarmData["traffic"]["destinationAddress"] !== "" && alarmMins > 1 && alarmMins < check_before ){
+                this.setTrafficDelay (alarmData);
+            }
         }
     },
 
@@ -351,7 +352,6 @@ module.exports = NodeHelper.create({
 
     speak: function (msg) {
         const voice = "";
-
         say.speak(msg, voice, 1.0, (err) => {
             if (err) {
                 this.log("Error on Text-to-Speech: " + err, "error");
@@ -374,24 +374,22 @@ module.exports = NodeHelper.create({
             msg += " " + this.config.greating + ", es ist " + moment().format("dddd") + " der " +
                 moment().format("Mo MMMM YYYY") + ", " +
                 moment().format("k") + " Uhr " + moment().format("m")+ ", ";
-        }
 
-        this.getWheatherForecast( (err, weatherInfo) => {
-            if (err !== null)
-                this.log (err, "error");
-            msg += weatherInfo;
+            this.getWheatherForecast( (err, weatherInfo) => {
+                if (err !== null)
+                    this.log (err, "error");
+                msg += weatherInfo;
 
-            this.getTrafficForecast(this.currentAlarm, (err, trafficInfo) => {
-                if (err) {
-                    this.log(err, "error");
-                } else {
-                    msg += trafficInfo;
-                }
-                this.speak(msg);
+                this.getTrafficForecast(this.currentAlarm, (err, trafficInfo) => {
+                    if (err) {
+                        this.log(err, "error");
+                    } else {
+                        msg += trafficInfo;
+                    }
+                    this.speak(msg);
+                });
             });
-        });
-
-
+        }
     },
 
     getWheatherForecast: function (callback) {
@@ -484,7 +482,7 @@ module.exports = NodeHelper.create({
         if (!this.config.trafficforecast || !this.config.trafficforecast.apikey || this.config.trafficforecast.apikey === "") {
             return callback("Traffic Forecast: Google ApiID not set!");
         }
-        if (this.config.trafficforecast.originAddress === "" || alarm["traffic"]["destinationAddress"] === "") {
+        if (this.config.trafficforecast.originAddress === "" || !alarm["traffic"] || alarm["traffic"]["destinationAddress"] === "") {
             return callback("No origin or destination address set for traffic forecast");
         }
         this.getGeocode(this.config.trafficforecast.originAddress, (err, response) => {

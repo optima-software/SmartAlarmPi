@@ -84,7 +84,9 @@ var alarmPlayer = function (folder) {
     }
 
     this.extractPlaylist = function (source, callback) {
-
+        /** @todo: Add support for local playlists
+         *
+         */
         var url = source["file"];
         let ftype = url.substring(url.length -4, url.length);
         var dest = "tmp" + ftype;
