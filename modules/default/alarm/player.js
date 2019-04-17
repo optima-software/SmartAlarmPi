@@ -42,6 +42,7 @@ var alarmPlayer = function (folder) {
             (source["file"].toString().indexOf(".pls")> -1 )
             ){
             if (this.isURL(source["file"])) {
+                //web stream
                 this.extractWebRadioPlaylist(source, (err, line) => {
                     if (err) {
                         this.log(err, "error");
