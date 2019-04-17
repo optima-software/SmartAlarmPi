@@ -128,35 +128,33 @@ module.exports = NodeHelper.create({
             this.unsetSnoozeTimer();
             this.log("We are off now. Cheers!", "debug");
 
-            /* disable alarm, if type single */
-            if (this.currentAlarm["type"] === "s") {
-                this.disableSingleAlarm (this.currentAlarm["name"]);
+            if (this.currentAlarm) {
+
+                /* disable alarm, if type single */
+                if (this.currentAlarm["type"] === "s") {
+                    this.disableSingleAlarm(this.currentAlarm["name"]);
+                }
+
+                //check if alarm is in future and only fired due to traffic delay
+                let origAlarmTime = moment(this.currentAlarm["time"], "HH:mm");
+                if (origAlarmTime.isAfter(moment())) {
+                    this.log("We have to block alarm " + this.currentAlarm["name"] + " till "
+                        + this.currentAlarm["time"], "debug");
+
+                    let sDelTime = origAlarmTime.diff(moment(), "seconds") + 60;
+                    let blockedAlarm = this.currentAlarm["name"];
+                    this.blockedAlarms.push(blockedAlarm);
+
+                    //and shedule the time to remove it
+                    setTimeout(() => {
+                        this.blockedAlarms.splice(this.blockedAlarms.indexOf(blockedAlarm), 1);
+                        this.log("Unblocked Alarm " + blockedAlarm, "debug");
+                    }, sDelTime * 1000, blockedAlarm)
+                }
+
+                this.currentAlarm = null;
+                this.readData();
             }
-
-            //-> we need a sleeping second to finish the transition animation
-            /* @fixme: Find a better solution than a sleep */
-            this.sleep(1);
-
-            //check if alarm is in future and only fired due to traffic delay
-            let origAlarmTime = moment(this.currentAlarm["time"], "HH:mm");
-            if (origAlarmTime.isAfter(moment())) {
-                this.log("We have to block alarm " + this.currentAlarm["name"] + " till "
-                    + this.currentAlarm["time"], "debug");
-
-                let sDelTime = origAlarmTime.diff(moment(), "seconds") + 60;
-                let blockedAlarm = this.currentAlarm["name"];
-                this.blockedAlarms.push(blockedAlarm);
-
-                //and shedule the time to remove it
-                setTimeout(()=> {
-                    this.blockedAlarms.splice(this.blockedAlarms.indexOf(blockedAlarm),1);
-                    this.log("Unblocked Alarm " + blockedAlarm , "debug");
-                }, sDelTime * 1000, blockedAlarm)
-            }
-
-            this.currentAlarm = null;
-            this.readData();
-
         } else if (notification === "ALARM") {
             this.log("Snooze time off, start Alarm", "debug");
             this.executeAlarm(this.currentAlarm);
