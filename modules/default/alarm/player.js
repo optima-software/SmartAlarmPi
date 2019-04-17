@@ -25,6 +25,14 @@ var alarmPlayer = function (folder) {
             console.log(this.name + " " + type + ": " + moment().format("DD.MM.YYYY HH:mm:ss") + " - " + msg);
     };
 
+    this.isURL = function (source) {
+        if (source.toString().indexOf("http://")> -1 ||
+            source.toString().indexOf("https://")> -1 ) {
+            return true;
+        }
+        return false;
+    }
+
     //play .mp3 or streams
     this.play = function (source, callback) {
         this.log("Triggered to play source: " + source["file"], "debug");
@@ -33,15 +41,28 @@ var alarmPlayer = function (folder) {
             (source["file"].toString().indexOf(".m3u")> -1 ) ||
             (source["file"].toString().indexOf(".pls")> -1 )
             ){
-            this.extractPlaylist(source, (err, line) => {
-                if (err) {
-                    this.log(err, "error");
-                    callback(err);
-                } else {
-                    this.mp3Play(line);
-                    callback(source["text"]);
-                }
-            });
+            if (this.isURL(source["file"])) {
+                this.extractWebRadioPlaylist(source, (err, line) => {
+                    if (err) {
+                        this.log(err, "error");
+                        callback(err);
+                    } else {
+                        this.mp3Play(line);
+                        callback(source["text"]);
+                    }
+                });
+            } else {
+                //local playlist
+                this.extractLocalPlaylist(source, (err, line) => {
+                    if (err) {
+                        this.log(err, "error");
+                        callback(err);
+                    } else {
+                        this.mp3Play(line);
+                        callback(source["text"]);
+                    }
+                });
+            }
         } else {
             this.mp3Play(source["file"]);
             callback(source["text"]);
@@ -51,8 +72,7 @@ var alarmPlayer = function (folder) {
     this.mp3Play = function (file) {
         this.mp3Player = new mp3Player();
         //check if we have a mp3-file or a stream
-        if (file.toString().indexOf("http://")> -1 ||
-            file.toString().indexOf("https://")> -1 ){
+        if ( this.isURL(file) ){
             try {
                 this.mp3Player.add(file);
                 this.mp3Player
@@ -66,7 +86,13 @@ var alarmPlayer = function (folder) {
             }
         } else {
             try {
-                this.mp3Player.add(this.musicFolder + file);
+                if (Array.isArray (file)) {
+                    file.forEach ((item) => {
+                        this.mp3Player.add(this.musicFolder + item);
+                    });
+                } else {
+                    this.mp3Player.add(this.musicFolder + file);
+                }
                 this.mp3Player
                     .on("play end", (() => {
                         this.log("End of Playlist", "warning");
@@ -81,12 +107,47 @@ var alarmPlayer = function (folder) {
                 this.log("Error catched " + err, "error");
             }
         }
-    }
+    };
 
-    this.extractPlaylist = function (source, callback) {
-        /** @todo: Add support for local playlists
-         *
-         */
+    this.extractLocalPlaylist = function (source, callback) {
+        let playlist = this.musicFolder + source["file"];
+        let ftype = playlist.substring(playlist.length -4, playlist.length);
+        let list = [];
+
+        fs.readFile(playlist, "utf8", (err, data) => {
+            if (err)
+                callback("Error catched on reading file " + err, null);
+
+            var lines = data.split("\n");
+
+            if (lines.length > 0) {
+                if (ftype === ".m3u" ){
+                    for (var line of lines) {
+                        if ( line.charAt(0) != "#" ){
+                            list.push(line);
+                        }
+                    }
+                    callback(null, list);
+                } else if (ftype === ".pls" ){
+                    for (var line of lines) {
+                        if ( line.substring(0, 4) ==="File"){
+                            list.push(line.substring(6, line.length));
+                        }
+                    }
+                    callback(null, list);
+                } else {
+                    callback ("Unknown file type " + ftype + " in " + url, null);
+                }
+
+            } else {
+                callback ("No content found in file " + url, null);
+            }
+        });
+
+    };
+
+    this.extractWebRadioPlaylist = function (source, callback) {
+
         var url = source["file"];
         let ftype = url.substring(url.length -4, url.length);
         var dest = "tmp" + ftype;
